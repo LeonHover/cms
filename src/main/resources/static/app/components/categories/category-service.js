@@ -7,7 +7,7 @@
         function ($http) {
             var serviceAddress = "http://localhost:8080";
             var urlCollections = serviceAddress + '/api/category';
-            var urlBase = serviceAddress + '/api/category/';
+            var urlBase = serviceAddress + '/api/category';
 
             this.find = function () {
                 return $http.get(urlCollections);
