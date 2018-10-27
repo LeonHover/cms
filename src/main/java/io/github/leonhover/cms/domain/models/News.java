@@ -1,19 +1,25 @@
 package io.github.leonhover.cms.domain.models;
 
+import java.util.HashSet;
 import java.util.Set;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
 @Data
+@Document(collection = "news")
 public class News {
+    @Id
     String id;
     String title;
     String content;
     User author;
-    Set<User> mandatoryReviewers;
-    Set<Category> categories;
-    Set<Tag> tags;
-    Set<Review> reviewers;
+    Set<User> mandatoryReviewers = new HashSet<>();
+    Set<Category> categories = new HashSet<>();
+    Set<Tag> tags = new HashSet<>();
+    Set<Review> reviewers = new HashSet<>();
 
     public Review review(String userId, String status) {
         final Review review = new Review(userId, status);

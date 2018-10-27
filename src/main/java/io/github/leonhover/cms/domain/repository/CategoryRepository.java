@@ -1,13 +1,8 @@
 package io.github.leonhover.cms.domain.repository;
 
-import org.springframework.stereotype.Service;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import io.github.leonhover.cms.domain.models.Category;
 
-/**
- * CategoryRepository
- */
-@Service
-public class CategoryRepository extends AbstractRepository<Category> {
-
+public interface CategoryRepository extends MongoRepository<Category, String> {
 }
